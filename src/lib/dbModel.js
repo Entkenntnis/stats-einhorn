@@ -41,6 +41,10 @@ module.exports = (App, db) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    expires: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   })
 
   App.db.Log = App.db.define('Log', {
