@@ -1,2 +1,13 @@
 # stats-einhorn
-backend for einhorn.arrrg.de
+
+Backend for einhorn.arrrg.de
+
+Setup `secrets.js`:
+
+```
+module.exports = {
+  db_password: '...',
+  backend_password: '...',
+  salt: '...'
+}
+```

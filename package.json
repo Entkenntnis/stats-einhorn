@@ -1,0 +1,20 @@
+{
+  "name": "stats-einhonr",
+  "version": "0.0.0",
+  "description": "Backend for einhorn.arrrg.de",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon index.js"
+  },
+  "main": "src/index.js",
+  "author": "Entkenntnis <einhorn@arrrg.de>",
+  "dependencies": {
+    "express": "^4.0.0",
+    "mariadb": "^2.0.0",
+    "sequelize": "^6.0.0",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
