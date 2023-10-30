@@ -1,4 +1,5 @@
 const { safeHandler } = require('../lib/safeHandler')
+const { hashSync } = require('bcryptjs')
 
 module.exports = (App) => {
   App.express.post(
@@ -38,7 +39,7 @@ module.exports = (App) => {
         // Attempt to create a new user with the given name and password
         await App.db.User.create({
           name,
-          password,
+          password: hashSync(password, 10),
         })
 
         // If the creation is successful, the name is unique.

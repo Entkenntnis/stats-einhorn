@@ -10,7 +10,9 @@ module.exports = (App) => {
         return res.json({ ok: false, reason: 'Parameter Name fehlt.' })
       }
 
-      const existingUser = App.db.User.findOne({ name })
+      const existingUser = await App.db.User.findOne({ where: { name } })
+
+      // console.log(name, existingUser)
 
       return res.json({ ok: true, userExists: !!existingUser })
     })
