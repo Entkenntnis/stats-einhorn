@@ -1,8 +1,8 @@
 const { safeHandler } = require('../lib/safeHandler')
 
-module.exports = (App) => {
+module.exports = (App, route) => {
   App.express.post(
-    '/check',
+    route,
     safeHandler(async (req, res) => {
       const { name } = req.body
 

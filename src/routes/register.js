@@ -1,9 +1,9 @@
 const { safeHandler } = require('../lib/safeHandler')
 const { hashSync } = require('bcryptjs')
 
-module.exports = (App) => {
+module.exports = (App, route) => {
   App.express.post(
-    '/register',
+    route,
     safeHandler(async (req, res) => {
       const { name, password } = req.body
 

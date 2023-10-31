@@ -2,9 +2,9 @@ const { compareSync } = require('bcryptjs')
 const { safeHandler } = require('../lib/safeHandler')
 const { sync } = require('uid-safe')
 
-module.exports = (App) => {
+module.exports = (App, route) => {
   App.express.post(
-    '/login',
+    route,
     safeHandler(async (req, res) => {
       const { name, password } = req.body
 
