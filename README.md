@@ -7,7 +7,6 @@ Setup `secrets.js`:
 ```
 module.exports = {
   db_password: '...',
-  backend_password: '...',
-  salt: '...'
+  backend_password: '...'
 }
 ```
