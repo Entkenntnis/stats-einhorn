@@ -10,7 +10,9 @@ module.exports = (App, route) => {
         return res.json({ ok: false, reason: 'Missing story id' })
       }
 
-      await App.db.Solved.create({ storyId, userId: req.userId })
+      await App.db.Solved.findOrCreate({
+        where: { storyId, userId: req.userId },
+      })
 
       return res.json({ ok: true })
     })
