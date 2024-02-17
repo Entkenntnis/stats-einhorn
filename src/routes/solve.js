@@ -1,17 +1,21 @@
-const { loggedInHandler } = require('../lib/loggedInHandler')
+const { safeHandler } = require('../lib/safeHandler')
 
 module.exports = (App, route) => {
   App.express.post(
     route,
-    loggedInHandler(App, async (req, res) => {
-      const { storyId } = req.body
+    safeHandler(async (req, res) => {
+      const { storyId, userId } = req.body
+
+      if (typeof userId !== 'string' || !userId) {
+        return res.json({ ok: false, reason: 'Missing user id' })
+      }
 
       if (typeof storyId !== 'number' || !Number.isInteger(storyId)) {
         return res.json({ ok: false, reason: 'Missing story id' })
       }
 
-      await App.db.Solved.findOrCreate({
-        where: { storyId, userId: req.userId },
+      await App.db.Solve.findOrCreate({
+        where: { storyId, userId },
       })
 
       return res.json({ ok: true })

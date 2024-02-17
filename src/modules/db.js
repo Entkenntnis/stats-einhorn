@@ -1,5 +1,3 @@
-// Don't ask why tables are named this way ... keeping
-
 module.exports = (App) => {
   const isUberspace = !!process.env.UBERSPACE
 
@@ -9,7 +7,7 @@ module.exports = (App) => {
 
   const db = isUberspace
     ? {
-        database: 'arrrg_stats_einhorn_new',
+        database: 'arrrg_stats_einhorn_v2',
         username: 'arrrg',
         password: App.secrets.db_password,
         dialect: 'mariadb',

@@ -7,12 +7,11 @@ module.exports = (App, route) => {
       const { userId, storyId, value, correct } = req.body
 
       if (
-        typeof userId !== 'number' ||
+        typeof userId !== 'string' ||
         typeof storyId !== 'number' ||
         typeof value !== 'string' ||
         typeof correct !== 'boolean' ||
         !value ||
-        !Number.isInteger(userId) ||
         !Number.isInteger(storyId)
       ) {
         return res.json({ ok: false, reason: 'Ungültige Anfrage' })

@@ -4,46 +4,25 @@ module.exports = (App, db) => {
   App.db = new Sequelize(db)
   App.db.Op = Op
 
-  App.db.User = App.db.define('User', {
-    id: {
-      type: DataTypes.INTEGER,
+  App.db.Name = App.db.define('Name', {
+    userId: {
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   })
 
-  App.db.Solved = App.db.define('Solved', {
+  App.db.Solve = App.db.define('Solve', {
     storyId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
     userId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-    },
-  })
-
-  App.db.Session = App.db.define('Session', {
-    token: {
       type: DataTypes.STRING,
       primaryKey: true,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    expires: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
   })
 
@@ -54,7 +33,7 @@ module.exports = (App, db) => {
       autoIncrement: true,
     },
     userId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     storyId: {

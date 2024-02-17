@@ -11,18 +11,17 @@ module.exports = (App, route) => {
         return res.json({ ok: false, reason: 'Ungültige Anfrage' })
       }
 
-      const users = await App.db.User.findAll({
+      const names = await App.db.Name.findAll({
         raw: true,
-        attributes: ['id', 'name', 'createdAt'],
       })
       const logs = await App.db.Log.findAll({
         raw: true,
       })
-      const solved = await App.db.Solved.findAll({
+      const solves = await App.db.Solve.findAll({
         raw: true,
       })
 
-      return res.json({ ok: true, users, logs, solved })
+      return res.json({ ok: true, names, logs, solves })
     })
   )
 }
