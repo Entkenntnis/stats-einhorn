@@ -17,7 +17,7 @@ module.exports = (App, route) => {
       const logs = await App.db.Log.findAll({
         raw: true,
       })
-      const events = await App.db.Log.findAll({
+      const events = await App.db.Event.findAll({
         raw: true,
       })
       const solves = await App.db.Solve.findAll({
