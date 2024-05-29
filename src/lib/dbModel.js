@@ -49,4 +49,20 @@ module.exports = (App, db) => {
       allowNull: false,
     },
   })
+
+  App.db.Event = App.db.define('Event', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    value: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  })
 }

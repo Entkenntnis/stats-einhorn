@@ -17,11 +17,14 @@ module.exports = (App, route) => {
       const logs = await App.db.Log.findAll({
         raw: true,
       })
+      const events = await App.db.Log.findAll({
+        raw: true,
+      })
       const solves = await App.db.Solve.findAll({
         raw: true,
       })
 
-      return res.json({ ok: true, names, logs, solves })
+      return res.json({ ok: true, names, logs, solves, events })
     })
   )
 }
